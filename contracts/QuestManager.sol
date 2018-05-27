@@ -19,7 +19,7 @@ contract QuestManager is QuestCards {
         uint numTokens;
     }
 
-    function createQuest(string _name, string _hint, uint _numTokens, bytes32 _merkleRoot, string _cardName) public returns (uint256) {
+    function createQuest(string _name, string _hint, uint256 _numTokens, bytes32 _merkleRoot, string _cardName) public returns (uint256) {
         Quest memory newQuest;
         uint256 QuestID = QuestCount++;
         newQuest.name = _name;
@@ -31,7 +31,6 @@ contract QuestManager is QuestCards {
         newQuest.numTokens = _numTokens;
         Quests[QuestID] = newQuest;
         QuestList.push(QuestID);
-        return QuestID;
     }
 
     function proveLocation(uint _questID, bytes32[] _proof, bytes32 _leaf) returns (bool){
